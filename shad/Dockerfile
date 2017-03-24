@@ -5,8 +5,8 @@ ADD run.sh /run.sh
 
 RUN apt-get update && \
     chmod 755 /run.sh && \
-    apt-get install -y python-pip libsodium18
-RUN pip install shadowsocks
+    apt-get install -y python-pip && \
+    pip install shadowsocks
 
 ENV PORT=60150
 ENV KEY=tk
