@@ -11,5 +11,6 @@ ENV PORT=60150
     KEY=gy.tk
     MAT=aes-256-cfb
     SOT=0.0.0.0
-#Configure container to run as an executable 
-ENTRYPOINT ["run.sh"]
+    
+EXPOSE 60150
+CMD ["/run.sh"]
