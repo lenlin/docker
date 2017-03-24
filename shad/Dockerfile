@@ -8,7 +8,7 @@ RUN apt-get update && \
     apt-get install -y python-pip libsodium18
 RUN pip install shadowsocks
 ENV PORT=60150
-    KEY=gaye.tk
+    KEY=gy.tk
     MAT=aes-256-cfb
     SOT=0.0.0.0
 #Configure container to run as an executable 
