@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ssserver -s $SOT -p $PORT -k $KEY -m $MAT
+ssserver -s 0.0.0.0 -p $PORT -k $KEY -m aes-256-cfb
