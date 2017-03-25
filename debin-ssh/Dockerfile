@@ -1,12 +1,22 @@
-FROM debian6
+FROM debian8
 MAINTAINER gal "keepob@163.com"
-ADD sources.list /etc/apt/sources.list
-RUN apt-get update && apt-get upgrade
-RUN apt-get install -y nginx
-RUN apt-get install -y supervisor
-ADD run.sh /var/run.sh
-ADD supervisord.conf /etc/supervisord.conf
-RUN mkdir /var/run/sshd
-RUN echo "root:123456" | chpasswd
-EXPOSE 22 80
-CMD bash /var/run.sh
+
+ADD run.sh /run.sh
+
+RUN apt-get update && \
+    apt-get -yq install openssh-server vim python-pip libsodium18 && \
+    pip install shadowsocks==2.8.2 && \
+    rm -rf /var/lib/apt/lists/* && \
+    mkdir -p /var/run/sshd && \
+    chmod 755 /run.sh && \
+    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+ENV RPASS=12345t
+ENV PORT=2012
+ENV KEY=gy.tk
+
+VOLUME ["/root/data"]
+
+EXPOSE 22 
+
+CMD ["/run.sh"]
