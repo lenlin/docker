@@ -1,4 +1,4 @@
-FROM debian8
+FROM debian:jessie
 MAINTAINER gal "keepob@163.com"
 
 ADD run.sh /run.sh
