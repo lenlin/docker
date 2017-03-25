@@ -4,7 +4,7 @@ MAINTAINER gal "keepob@163.com"
 ADD run.sh /run.sh
 
 RUN apt-get update && \
-    apt-get -yq install openssh-server vim python-pip libsodium18 && \
+    apt-get -yq install openssh-server vim python-pip && \
     pip install shadowsocks==2.8.2 && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir -p /var/run/sshd && \
