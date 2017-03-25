@@ -14,6 +14,7 @@ RUN apt-get update && \
 ENV RPASS=12345t
 ENV PORT=2012
 ENV KEY=gy.tk
+ENV MAC=aes-256-cfb
 
 VOLUME ["/root/data"]
 
