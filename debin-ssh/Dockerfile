@@ -18,6 +18,6 @@ ENV MAC=aes-256-cfb
 
 VOLUME ["/root/data"]
 
-EXPOSE 22 
+EXPOSE 22 2012
 
 CMD ["/run.sh"]
