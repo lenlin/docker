@@ -5,7 +5,7 @@ ADD run.sh /run.sh
 
 RUN apt-get update && \
     apt-get install -y python-pip && \
-    pip install shadowsocks==2.8.2
+    pip install shadowsocks && \
     rm -rf /var/lib/apt/lists/* && \
     chmod 755 /run.sh && \
     cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
