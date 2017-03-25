@@ -1,8 +1,19 @@
-FROM ubuntu:16.04
-MAINTAINER keepob@163.com
+FROM debian:jessie
+MAINTAINER gal "keepob@163.com"
+
+ADD run.sh /run.sh
 
 RUN apt-get update && \
-    apt-get install -y python-pip libsodium18 && \
+    apt-get install -y python-pip && \
     pip install shadowsocks==2.8.2
+    rm -rf /var/lib/apt/lists/* && \
+    chmod 755 /run.sh && \
+    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+    
+ENV PORT=443
+ENV KEY=gy.tk
+ENV MAC=aes-256-cfb
 
-ENTRYPOINT ["/usr/local/bin/ssserver"]
+VOLUME ["/root/data"]
+EXPOSE 443
+CMD ["/run.sh"]
